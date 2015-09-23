@@ -15,3 +15,6 @@ RUN apt-get install -y ruby2.1 ruby2.1-dev
 # Install bundler without the documenation and add gemrc file
 RUN /bin/bash -l -c "gem install bundler --no-rdoc --no-ri && \
 echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+
+# Remove unecessary files
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
